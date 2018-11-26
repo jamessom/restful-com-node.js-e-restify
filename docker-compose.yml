@@ -1,0 +1,30 @@
+version: "2"
+
+services:
+  db:
+    container_name: restful-db
+    image: mariadb
+    logging:
+      driver: "none"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+
+  adminer:
+    container_name: restful-adminer
+    image: adminer
+    logging:
+      driver: "none"
+    ports: [ "8082:8080" ]
+
+  restful-api:
+    container_name: restful-api
+    build: .
+    command: sh start.sh
+    ports: [ "8081:8080" ]
+    volumes:
+      - .:/app:rw
+      - node_modules:/app/node_modules
+    image: restful-api:latest
+
+volumes:
+  node_modules:
