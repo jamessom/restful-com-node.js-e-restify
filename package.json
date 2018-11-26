@@ -20,7 +20,7 @@
   },
   "scripts": {
     "dev": "nodemon index.js --watch",
-    "start": "npm run dev",
+    "start": "node index.js",
     "test": "jest",
     "lint": "eslint ./src",
     "jest-watch": "jest --watchAll",

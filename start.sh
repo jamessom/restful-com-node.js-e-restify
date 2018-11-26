@@ -3,4 +3,4 @@
 echo "Installing dependencies..."
 npm install --ignore-optional
 
-npm run start
+npm run dev
