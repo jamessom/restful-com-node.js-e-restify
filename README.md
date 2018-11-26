@@ -63,7 +63,20 @@ docker-compose run --rm restful-api npm run test
 
 ## Style guide
 
-...
+**commits**
+
+- :new: `:new:` NEW
+- :cyclone: `:cyclone:` REORG
+- :star: `:star:` TAG
+- :sparcles: `:sparcles:` BUMP
+- :zap: `:zap:` FIX
+- :satellite: `:satellite:` PULL
+- :construction: `:construction:` NOMATCH
+- :mag: `:mag:` REF
+- :bomb: `:bomb:` INVALID
+- :zzz: `:zzz:` HOLD
+- :exclamation: `:exclamation:` REOPEN
+- :x: `:x:` WONTFIX
 
 ## Api Reference
 
