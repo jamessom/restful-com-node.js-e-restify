@@ -16,7 +16,7 @@
     "restfy"
   ],
   "engines": {
-    "node": ">=10"
+    "node": "10.x"
   },
   "scripts": {
     "dev": "nodemon index.js --watch",
