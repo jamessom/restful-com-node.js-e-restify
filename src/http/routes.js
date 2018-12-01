@@ -1,5 +1,3 @@
-
-
 const categories = require('../services')
 
 const routes = (server) => {
