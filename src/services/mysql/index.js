@@ -1,10 +1,13 @@
 const Mysql = require('mysql')
 const { databse } = require('../../../config')
 
-// #TODO: handle erro if connection is out
 const connection = Mysql.createConnection(databse)
+const erroHandler = (error, msg, rejectFunction) => {
+  console.log(error)
+  rejectFunction({ error: msg })
+}
 
-const categoryModules = require('./categories')({ connection })
+const categoryModules = require('./categories')({ connection, erroHandler })
 
 module.exports = {
   categories: () => categoryModules
