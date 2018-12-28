@@ -1,4 +1,4 @@
-const categories = require('../services')
+const db = require('../services/mysql')
 
 const routes = (server) => {
   server.get('/', (req, res, next) => {
@@ -13,8 +13,7 @@ const routes = (server) => {
 
   server.get('/categories', async (req, res, next) => {
     try {
-      const cat = await categories
-      res.send(cat)
+      res.send(await db.categories().all())
       next()
     } catch (error) {
       res.send(error)
