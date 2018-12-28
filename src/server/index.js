@@ -3,16 +3,14 @@ const server = restify.createServer()
 const routes = require('../http/routes')
 const cors = require('./cors')
 
+const handlers = [
+  cors.actual,
+  restify.plugins.queryParser({ mapParams: true }),
+  restify.plugins.bodyParser({ mapParams: true })
+]
+
 server.pre(cors.preflight)
-server.use(cors.actual)
-server.use(
-  restify.plugins.queryParser({
-    mapParams: true
-  }),
-  restify.plugins.bodyParser({
-    mapParams: true
-  })
-)
+server.use(handlers)
 
 routes(server)
 
