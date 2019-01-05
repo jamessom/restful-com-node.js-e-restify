@@ -14,44 +14,40 @@ const routes = (server) => {
   server.get('/categories', async (req, res, next) => {
     try {
       res.send(await db.categories().all())
-      next()
     } catch (error) {
       res.send(error)
-      next()
     }
+    next()
   })
 
   server.post('/categories', async (req, res, next) => {
     try {
       const { name } = req.params
       res.send(await db.categories().save(name))
-      next()
     } catch (error) {
       res.send(error)
-      next()
     }
+    next()
   })
 
   server.put('/categories', async (req, res, next) => {
     try {
       const { id, name } = req.params
       res.send(await db.categories().update(id, name))
-      next()
     } catch (error) {
       res.send(error)
-      next()
     }
+    next()
   })
 
   server.del('/categories', async (req, res, next) => {
     try {
       const { id } = req.params
       res.send(await db.categories().del(id))
-      next()
     } catch (error) {
       res.send(error)
-      next()
     }
+    next()
   })
 }
 
