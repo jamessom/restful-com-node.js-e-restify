@@ -21,20 +21,37 @@ const routes = (server) => {
     }
   })
 
-  server.post('/categories', (req, res, next) => {
-    const { name } = req.params
-    res.send(name)
-    next()
+  server.post('/categories', async (req, res, next) => {
+    try {
+      const { name } = req.params
+      res.send(await db.categories().save(name))
+      next()
+    } catch (error) {
+      res.send(error)
+      next()
+    }
   })
 
-  server.put('/categories', (req, res, next) => {
-    res.send('put categories')
-    next()
+  server.put('/categories', async (req, res, next) => {
+    try {
+      const { id, name } = req.params
+      res.send(await db.categories().update(id, name))
+      next()
+    } catch (error) {
+      res.send(error)
+      next()
+    }
   })
 
-  server.del('/categories', (req, res, next) => {
-    res.send('delete categories')
-    next()
+  server.del('/categories', async (req, res, next) => {
+    try {
+      const { id } = req.params
+      res.send(await db.categories().del(id))
+      next()
+    } catch (error) {
+      res.send(error)
+      next()
+    }
   })
 }
 
