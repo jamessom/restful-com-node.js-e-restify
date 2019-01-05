@@ -26,7 +26,7 @@ const categories = deps => {
           resolve({ category: {
             name,
             id: res.insertId
-          }})
+          } })
         })
       })
     },
@@ -59,10 +59,8 @@ const categories = deps => {
           resolve({ category: { res } })
         })
       })
-    },
+    }
   }
-
-
 }
 
 module.exports = categories
